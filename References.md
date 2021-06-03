@@ -1,19 +1,23 @@
-# Istio requires more resources to run; Minikube starts with 1 cluster by default, we would need much more than that.
-
+# Istio requires more resources to run; 
+- Minikube starts with 1 cluster by default, we would need much more than that.
+```
 minikube start --cpus 6 --memory 8192
+```
 
-# Add istioctl bin to Path, istioctl is accessible
+- Addistioctl bin to Path, istioctl is accessible
 
 # Install istio inside minikube cluster
 
 # Get Namespace
+```
 kubectl get ns
-
+```
 # Get Pods 
+```
 kubectl get pod
+```
 
-
-#Output 
+- Output 
 
 -----------------------------------------------------------------------------
 (base) SVN-19-409-mohamedfazaary:istio mohamedfazaary$ istioctl install
@@ -29,7 +33,7 @@ This will install the Istio 1.10.0  profile with ["Istio core" "Istiod" "Ingress
 -----------------------------------------------------------------------------
 
 
-# Validate NS creation as well as Pod that is created within the NS specified.
+- Validate NS creation as well as Pod that is created within the NS specified.
 
 kubectl get ns
 (Pods)
@@ -37,18 +41,17 @@ kubectl get pod -n istio-system
 
 
 
-# Demo - GCP Project  
+- Demo - GCP Project  
 https://github.com/GoogleCloudPlatform/microservices-demo
 
 
-Locate & Apply the Manifest K8s manifest (8mins to come up)
+- Locate & Apply the Manifest K8s manifest (8mins to come up)
 
-kubectl apply -f kubernetes-manifests.yaml [ DONT DO IT IF YOUR CLUSTER IS SLOW ]
+``` kubectl apply -f kubernetes-manifests.yaml ``` [ DONT DO IT IF YOUR CLUSTER IS SLOW ]
 
-# Configure ISTIO to insert Sidecars into the Pod
+- Configure ISTIO to insert Sidecars into the Pod
 
-
-# Label your Namespaces - This is critical for Istio to work
+- Label your Namespaces - This is critical for Istio to work
 
 ```
 kubectl get ns default --show-labels
@@ -75,12 +78,10 @@ kubectl get pods -n istio-system
 
 To access pods, we need services.
 Check that,
----
-kubectl get svc -n istio-system
----
 
+``` kubectl get svc -n istio-system ```
 
-Port forwarding on Kiali
+# Port forwarding on Kiali
 
 ```
 kubectl port-forward svc/kiali -n istio-system 20001
@@ -88,5 +89,4 @@ kubectl port-forward svc/kiali -n istio-system 20001
 
 # Note on the labels 
 app: =-> When deploying Microservices in ISTIO, we need the app label for data visualisation to work.
-
 
