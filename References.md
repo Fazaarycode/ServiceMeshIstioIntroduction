@@ -20,9 +20,11 @@ kubectl get pod
 - Output 
 
 -----------------------------------------------------------------------------
-(base) SVN-19-409-mohamedfazaary:istio mohamedfazaary$ istioctl install
+```(base) SVN-19-409-mohamedfazaary:istio mohamedfazaary$ istioctl install```
+
 Detected that your cluster does not support third party JWT authentication. Falling back to less secure first party JWT. See https://istio.io/v1.10/docs/ops/best-practices/security/#configure-third-party-service-account-tokens for details.
 ! values.global.jwtPolicy is deprecated; use Values.global.jwtPolicy=third-party-jwt. See http://istio.io/latest/docs/ops/best-practices/security/#configure-third-party-service-account-tokens for more information instead
+```
 This will install the Istio 1.10.0  profile with ["Istio core" "Istiod" "Ingress gateways"] components into the cluster. Proceed? (y/N) yes
 ✔ Istio core installed                                                                                         
 - Processing resources for Istiod. Waiting for Deployment/istio-system/istiod                                  
@@ -31,15 +33,15 @@ This will install the Istio 1.10.0  profile with ["Istio core" "Istiod" "Ingress
 ✔ Ingress gateways installed                                                                                   
 ✔ Installation complete  
 -----------------------------------------------------------------------------
-
+```
 
 - Validate NS creation as well as Pod that is created within the NS specified.
 
 kubectl get ns
 (Pods)
+```
 kubectl get pod -n istio-system
-
-
+```
 
 - Demo - GCP Project  
 https://github.com/GoogleCloudPlatform/microservices-demo
